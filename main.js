@@ -4,7 +4,7 @@ const comingSoon = $('.coming-soon')
 const buttonPlay = $('button')
 
 const countdown = () => {
-    const countDate = new Date('September 2, 2021 00:00:00').getTime(); // chỉ định thời gian đếm ngc (mili giây)
+    const countDate = new Date('January 1, 2022 00:00:00').getTime(); // chỉ định thời gian đếm ngc (mili giây)
     const now = new Date().getTime() // tìm ra current time
     const gap = countDate - now // tìm khoảng cách
 
@@ -26,6 +26,7 @@ const countdown = () => {
     $('.second').innerHTML = textSecond
 
     if (gap <= 0) {
+        gap == null
         launchTheFuckOfTheLife();
     }
 }
