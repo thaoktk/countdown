@@ -11,7 +11,7 @@
 <body>
     <section class="coming-soon">
         <div>
-            <h2>Count down to a new year!</h2>
+            <h2 class="title">Count down!</h2>
             <div class="countdown">
                 <div class="container-day">
                     <h3 class="day">Time</h3>
@@ -31,12 +31,32 @@
                 </div>
             </div>
         </div>
-        <img class="waiting" src="https://i.pinimg.com/originals/da/0a/dd/da0add39a6ead87cb754f032d0d86a58.png" alt="">
+        <div class="picture">
+            <img class="waiting" src="https://i.pinimg.com/originals/da/0a/dd/da0add39a6ead87cb754f032d0d86a58.png" alt="">
+        </div>
         <div class="window">
             <button>Play the music</button>
         </div>
         <audio id="audio" src="./song/EmDiGiuaBienVang-DaiTNVN_67by.mp3"></audio>
     </section>
+    <section class="setting-countdown">
+        <div class="button-setting-wrap">
+            <div class="button-setting">
+                <ion-icon name="settings-outline"></ion-icon>
+            </div>
+            <div class="section-setting">
+                <form action="" class="form-setting">
+                    <label for="">Title</label>
+                    <input type="text" placeholder=" " class="input-title" required>
+                    <label for="">Time</label>
+                    <input type="datetime-local" name="" id="" class="input-time" required>
+                    <button type="submit" class="button-submit">Enter</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="./main.js"></script>
 </body>
 </html>

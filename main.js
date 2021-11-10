@@ -2,9 +2,18 @@ const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 const comingSoon = $('.coming-soon')
 const buttonPlay = $('button')
+const buttonSetting = $('.button-setting')
+const sectionSetting = $('.button-setting-wrap')
+const inputTitle = $('.input-title')
+const title = $('.title')
+const buttonSubmit = $('.button-submit')
+const inputTime = $('.input-time')
+const COUNTDOWN_STORAGE_KEY = 'COUNTDOWN'
 
+
+// --------------------------- countdown -------------------------
 const countdown = () => {
-    const countDate = new Date('January 1, 2022 00:00:00').getTime(); // chỉ định thời gian đếm ngc (mili giây)
+    const countDate = changeTime() || getChange().time // chỉ định thời gian đếm ngc (mili giây)
     const now = new Date().getTime() // tìm ra current time
     const gap = countDate - now // tìm khoảng cách
 
@@ -28,11 +37,12 @@ const countdown = () => {
     if (gap <= 0) {
         gap == null
         launchTheFuckOfTheLife();
+    } else {
+        comingSoon.classList.remove('active')
     }
 }
 
-setInterval(countdown, 1000)
-
+// ----------------------------- when countdown done ------------------------------
 const launchTheFuckOfTheLife = () => {
     $('.day').innerHTML = 0
     $('.hour').innerHTML = 0
@@ -45,5 +55,46 @@ const launchTheFuckOfTheLife = () => {
     }
 }
 
+// ------------------------ Change title and date time -----------------------
+function changeTime() {
+    const countDate = new Date(inputTime.value).getTime()
+    return countDate
+}
 
 
+buttonSetting.onclick = () => {
+    sectionSetting.classList.toggle('active')
+}
+
+buttonSubmit.onclick = () => {
+    if (inputTitle.value && inputTime.value) {
+        sectionSetting.classList.remove('active')
+        title.innerHTML = inputTitle.value
+        setInterval(countdown, 1000)
+        const countdownSaved = {
+            title: inputTitle.value,
+            time: changeTime()
+        }
+        saveChange(countdownSaved)
+    }
+}
+
+// ----------------------- save data to localStorage ----------------------
+
+function saveChange(itemSave) {
+    localStorage.setItem(COUNTDOWN_STORAGE_KEY, JSON.stringify(itemSave))
+}
+
+function getChange() {
+    return JSON.parse(localStorage.getItem(COUNTDOWN_STORAGE_KEY))
+}
+
+// ----------------------------- load current title, date and time --------------------
+
+function loadCurrentSetting() {
+    title.innerHTML = getChange().title
+    setInterval(countdown, 1000)
+}
+
+countdown()
+loadCurrentSetting()

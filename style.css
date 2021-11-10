@@ -9,27 +9,27 @@ body {
     display: flex;
 }
 
-h2 {
-    font-size: 4rem;
-    font-weight: bold;
-    padding: 2rem;
-    text-align: center;
-}
 
 .coming-soon {
+    padding: 50px;
     margin: auto;
     position: relative;
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+    width: 100%;
     overflow: hidden;
 }
 
 .countdown {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.title {
+    font-size: 4rem;
+    line-height: 4.5rem;
+    font-weight: bold;
     text-align: center;
 }
 
@@ -37,7 +37,15 @@ h2 {
     font-size: 2rem;
 }
 
+.picture {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .waiting {
+    margin-top: 20px;
     height: 50vh;
 }
 
@@ -66,4 +74,134 @@ h2 {
     border: none;
     padding: 10px;
     background: linear-gradient(90deg, rgba(214,150,239,1) 0%, rgba(120,214,233,1) 100%);
+}
+
+.setting-countdown {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.button-setting-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(85%);
+    width: 100%;
+    height: 100%;
+    transition: 0.5s linear;
+}
+
+.button-setting-wrap.active {
+    transform: translateX(0);
+}
+
+.button-setting {
+    cursor: pointer;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1), 0 0 20px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+
+.button-setting ion-icon {
+    font-size: 25px;
+    animation: rotate 2.5s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(360deg);
+    } 
+    to {
+        transform: rotate(0);
+    }
+}
+
+.section-setting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.form-setting {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px 0;
+}
+
+.input-title {
+    padding: 10px;
+    outline: none;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    transition: 0.2s linear;
+}
+
+.input-time {
+    padding: 10px;
+    outline: none;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    transition: 0.2s linear;
+}
+
+.input-title:focus {
+    border-color: #e3cafe;
+}
+
+.input-time:focus {
+    border-color: #e3cafe;
+}
+
+.button-submit {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    transition: 0.2s linear;
+}
+
+.button-submit:focus, .button-submit:hover {
+    border: 1px solid transparent;
+    background-color: #e3cafe;
+    color: #fff;
+}
+
+@media (max-width: 739px) {
+    .countdown {
+        justify-content: center;
+        gap: 0 15px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+
+    .day, .hour, .minute, .second {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 300px) {
+    .countdown {
+        justify-content: center;
+        gap: 0 12px;
+    }
 }
