@@ -148,6 +148,7 @@ body {
     border: 2px solid #ccc;
     border-radius: 10px;
     transition: 0.2s linear;
+    width: 100%;
 }
 
 .input-time {
@@ -156,6 +157,7 @@ body {
     border: 2px solid #ccc;
     border-radius: 10px;
     transition: 0.2s linear;
+    width: 100%;
 }
 
 .input-title:focus {
