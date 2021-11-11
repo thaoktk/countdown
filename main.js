@@ -14,7 +14,7 @@ const bodyContainer = $('body')
 
 // --------------------------- countdown -------------------------
 const countdown = () => {
-    const countDate = changeTime() || getChange().time || new Date('May 17, 2022 00:00:00') // chỉ định thời gian đếm ngc (mili giây)
+    const countDate = changeTime() || getChange().time || new Date('May 17, 2022 00:00:00').getTime() // chỉ định thời gian đếm ngc (mili giây)
     const now = new Date().getTime() // tìm ra current time
     const gap = countDate - now // tìm khoảng cách
 
