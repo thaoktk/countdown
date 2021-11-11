@@ -9,6 +9,7 @@ const title = $('.title')
 const buttonSubmit = $('.button-submit')
 const inputTime = $('.input-time')
 const COUNTDOWN_STORAGE_KEY = 'COUNTDOWN'
+const bodyContainer = $('body')
 
 
 // --------------------------- countdown -------------------------
@@ -100,4 +101,44 @@ function loadCurrentSetting() {
 countdown()
 loadCurrentSetting()
 
-console.log(getChange().time)
+
+
+// --------------------------- random background -----------------------------
+const backgrounds = [
+    {
+        id: 1,
+        img: 'https://images.unsplash.com/photo-1514477917009-389c76a86b68?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=767&q=80'
+    },
+    {
+        id: 2,
+        img: 'https://images.unsplash.com/photo-1508020268086-b96cf4f4bb2e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80'
+    },
+    {
+        id: 3,
+        img: 'https://images.unsplash.com/photo-1465634836201-1d5651b9b6d6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80'
+    },
+    {
+        id: 4,
+        img: 'https://images.unsplash.com/photo-1460627390041-532a28402358?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80'
+    },
+    {
+        id: 5,
+        img: 'https://images.unsplash.com/photo-1475302389077-6ec2b24b95bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80'
+    },
+    {
+        id: 6,
+        img: 'https://images.unsplash.com/photo-1519052537078-e6302a4968d4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80'
+    },
+    {
+        id: 7,
+        img: 'https://images.unsplash.com/photo-1468581264429-2548ef9eb732?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
+    }
+]
+
+function randomBackground() {
+    const randomNumber = Math.floor(Math.random() * 7)
+    const randomImg = backgrounds[randomNumber].img
+    bodyContainer.style.backgroundImage = `url(${randomImg})`
+}
+
+setInterval(randomBackground, 10000)
