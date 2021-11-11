@@ -23,7 +23,7 @@ body {
     position: relative;
     width: calc(100% - 100px);
     overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
     background: transparent;
     backdrop-filter: blur(4px);
     border-radius: 10px;
@@ -43,6 +43,7 @@ body {
     font-weight: 700;
     text-align: center;
     color: #fff;
+    text-shadow: 5px 0 10px rgba(255,255,255,0.2);
 }
 
 .container-common {
@@ -61,27 +62,25 @@ body {
     align-items: center;
 }
 
-.waiting {
-    margin-top: 50px;
-    height: 50vh;
-}
-
 .window {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 250px;
-    height: 100px;
-    border-radius: 5px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, rgba(214,150,239,0.4) 0%, rgba(120,214,233,0.4) 100%);
+    backdrop-filter: blur(2px);
     display: none;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-.coming-soon.active .window {
+body.active .window {
     display: flex;
 }
 
-.window button {
+.button-play {
     border-radius: 5px;
     color: #fff;
     font-size: 20px;
@@ -99,7 +98,7 @@ body {
     top: 0;
     right: 0;
     bottom: 0;
-    overflow: hidden;
+    transition: all 0.5s linear;
 }
 
 .button-setting-wrap {
@@ -112,8 +111,12 @@ body {
     transform: translateX(86%);
 }
 
-.button-setting-wrap.active {
+.setting-countdown.active .button-setting-wrap {
     transform: translateX(0);
+}
+
+.setting-countdown.active {
+    z-index: 999;
 }
 
 .button-setting {
@@ -162,6 +165,7 @@ body {
     justify-content: center;
     flex-direction: column;
     gap: 10px 0;
+    color: #fff;
 }
 
 .input-title {

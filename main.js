@@ -1,20 +1,19 @@
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
-const comingSoon = $('.coming-soon')
-const buttonPlay = $('button')
-const buttonSetting = $('.button-setting')
-const sectionSetting = $('.button-setting-wrap')
-const inputTitle = $('.input-title')
 const title = $('.title')
-const buttonSubmit = $('.button-submit')
+const buttonPlay = $('.button-play')
+const buttonSetting = $('.button-setting')
+const sectionCountdown = $('.setting-countdown')
+const inputTitle = $('.input-title')
 const inputTime = $('.input-time')
-const COUNTDOWN_STORAGE_KEY = 'COUNTDOWN'
+const buttonSubmit = $('.button-submit')
 const bodyContainer = $('body')
+const COUNTDOWN_STORAGE_KEY = 'COUNTDOWN'
 
 
 // --------------------------- countdown -------------------------
 const countdown = () => {
-    const countDate = changeTime() || getChange().time // chỉ định thời gian đếm ngc (mili giây)
+    const countDate = changeTime() || getChange().time || new Date('May 17, 2022 00:00:00').getTime() // chỉ định thời gian đếm ngc (mili giây)
     const now = new Date().getTime() // tìm ra current time
     const gap = countDate - now // tìm khoảng cách
 
@@ -39,7 +38,7 @@ const countdown = () => {
         gap == null
         launchTheFuckOfTheLife();
     } else {
-        comingSoon.classList.remove('active')
+        bodyContainer.classList.remove('active')
     }
 }
 
@@ -49,7 +48,7 @@ const launchTheFuckOfTheLife = () => {
     $('.hour').innerHTML = 0
     $('.minute').innerHTML = 0
     $('.second').innerHTML = 0
-    comingSoon.classList.add('active')
+    bodyContainer.classList.add('active')
     buttonPlay.onclick = () => {
         $('#audio').play();
         $('#audio').volume = 0.4
@@ -65,12 +64,12 @@ function changeTime() {
 }
 
 buttonSetting.onclick = () => {
-    sectionSetting.classList.toggle('active')
+    sectionCountdown.classList.toggle('active')
 }
 
 buttonSubmit.onclick = () => {
     if (inputTitle.value && inputTime.value) {
-        sectionSetting.classList.remove('active')
+        sectionCountdown.classList.remove('active')
         title.innerHTML = inputTitle.value
         setInterval(countdown, 1000)
         const countdownSaved = {
@@ -119,7 +118,7 @@ const backgrounds = [
     },
     {
         id: 4,
-        img: 'https://images.unsplash.com/photo-1460627390041-532a28402358?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80'
+        img: 'https://images.unsplash.com/photo-1510274460854-4b7ad642d3a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
     },
     {
         id: 5,
