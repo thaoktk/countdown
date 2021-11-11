@@ -35,8 +35,8 @@ const countdown = () => {
     $('.second').innerHTML = textSecond
 
     if (gap <= 0) {
+        launchTheFuckOfTheLife()
         gap = null
-        launchTheFuckOfTheLife();
     } else {
         bodyContainer.classList.remove('active')
     }
