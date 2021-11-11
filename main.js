@@ -53,14 +53,15 @@ const launchTheFuckOfTheLife = () => {
         $('#audio').play();
         $('#audio').volume = 0.4
     }
+    confetti.start()
 }
+
 
 // ------------------------ Change title and date time -----------------------
 function changeTime() {
     const countDate = new Date(inputTime.value).getTime()
     return countDate
 }
-
 
 buttonSetting.onclick = () => {
     sectionSetting.classList.toggle('active')
@@ -98,3 +99,5 @@ function loadCurrentSetting() {
 
 countdown()
 loadCurrentSetting()
+
+console.log(getChange().time)
