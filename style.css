@@ -75,6 +75,7 @@ body {
     height: 100px;
     border-radius: 5px;
     display: none;
+    z-index: 99;
 }
 
 .coming-soon.active .window {
