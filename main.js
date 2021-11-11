@@ -15,7 +15,7 @@ const COUNTDOWN_STORAGE_KEY = 'COUNTDOWN'
 const countdown = () => {
     const countDate = changeTime() || getChange().time || new Date('May 17, 2022 00:00:00').getTime() // chỉ định thời gian đếm ngc (mili giây)
     const now = new Date().getTime() // tìm ra current time
-    const gap = countDate - now // tìm khoảng cách
+    let gap = countDate - now // tìm khoảng cách
 
     // how the fuck does time work? 
     const second = 1000 // 1s = 1000ms
@@ -35,8 +35,8 @@ const countdown = () => {
     $('.second').innerHTML = textSecond
 
     if (gap <= 0) {
+        launchTheFuckOfTheLife()
         gap = null
-        launchTheFuckOfTheLife();
     } else {
         bodyContainer.classList.remove('active')
     }

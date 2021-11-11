@@ -74,8 +74,7 @@ body {
     backdrop-filter: blur(2px);
     display: none;
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    z-index: 99;
-    transition: all 0.5s linear;
+    transition: 0.5s linear;
 }
 
 body.active .window {
@@ -119,6 +118,10 @@ body.active .window {
 
 .setting-countdown.active {
     z-index: 999;
+}
+
+.setting-countdown.active  ~ .window{
+    z-index: 4;
 }
 
 .button-setting {
@@ -186,6 +189,7 @@ body.active .window {
     border-radius: 10px;
     transition: 0.2s linear;
     width: 100%;
+    background-color: #fff;
 }
 
 .input-title:focus {
@@ -236,4 +240,12 @@ body.active .window {
     .day, .hour, .minute, .second {
         font-size: 2rem;
     }
+}
+
+@media (max-width: 300px) {
+    .window {
+        width: 180px;
+        height: 180px;
+    }
+
 }
