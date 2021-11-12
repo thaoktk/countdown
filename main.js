@@ -79,10 +79,12 @@
         if (inputTitle.value && inputTime.value) {
             settingCountdown.classList.remove('active')
             title.innerHTML = inputTitle.value
+
             const countdownSaved = {
                 title: inputTitle.value,
                 time: changeTime()
             }
+            
             saveChange(countdownSaved)
             setInterval(countdown, 1000)
         }
