@@ -242,6 +242,10 @@ body.active .window {
     .day, .hour, .minute, .second {
         font-size: 2rem;
     }
+
+    .copyright {
+        font-size: 0.6rem;
+    }
 }
 
 @media (max-width: 300px) {
@@ -255,5 +259,8 @@ body.active .window {
 .copyright {
     color: #fff;
     font-size: 1rem;
+    line-height: 1.3rem;
     letter-spacing: 2px;
+    text-align: center;
+    padding: 0 20px;
 }
