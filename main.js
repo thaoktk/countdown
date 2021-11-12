@@ -2,6 +2,7 @@ const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 const title = $('.title')
 const buttonPlay = $('.button-play')
+const myMusic = $('#audio')
 const buttonSetting = $('.button-setting')
 const sectionCountdown = $('.setting-countdown')
 const inputTitle = $('.input-title')
@@ -9,7 +10,6 @@ const inputTime = $('.input-time')
 const buttonSubmit = $('.button-submit')
 const bodyContainer = $('body')
 const COUNTDOWN_STORAGE_KEY = 'COUNTDOWN'
-
 
 // --------------------------- countdown -------------------------
 const countdown = () => {
@@ -50,12 +50,15 @@ const launchTheFuckOfTheLife = () => {
     $('.second').innerHTML = 0
     bodyContainer.classList.add('active')
     buttonPlay.onclick = () => {
-        $('#audio').play();
-        $('#audio').volume = 0.4
+        togglePlay()
+        myMusic.volume = 0.4
     }
     confetti.start()
 }
 
+function togglePlay() {
+    return myMusic.paused ? myMusic.play() : myMusic.pause()
+}
 
 // ------------------------ Change title and date time -----------------------
 function changeTime() {
