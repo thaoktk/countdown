@@ -10,6 +10,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 50px 0;
+    flex-direction: column;
     min-height: 100vh;
     background-image: url('https://images.unsplash.com/photo-1468581264429-2548ef9eb732?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
     background-position: center;
@@ -248,4 +250,10 @@ body.active .window {
         height: 180px;
     }
 
+}
+
+.copyright {
+    color: #fff;
+    font-size: 1rem;
+    letter-spacing: 2px;
 }
