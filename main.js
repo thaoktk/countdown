@@ -35,7 +35,7 @@
     
         if (gap <= 0) {
             launchTheFuckOfTheLife()
-            clearInterval(gap)
+            gap = null
         } else {
             bodyContainer.classList.remove('active')
             confetti.stop()
