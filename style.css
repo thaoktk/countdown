@@ -13,7 +13,7 @@ body {
     gap: 50px 0;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url('https://images.unsplash.com/photo-1468581264429-2548ef9eb732?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+    background-image: url('https://images.unsplash.com/photo-1514477917009-389c76a86b68?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=767&q=80');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
